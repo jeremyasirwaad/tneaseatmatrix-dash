@@ -6,8 +6,7 @@ export const TopBar = () => {
 	return (
 		<div className="TopBar">
 			<div className="logoutbtn" style={{ marginRight: "30px" }}>
-				<p style={{ marginRight: "10px" }}>Logout</p>
-				<AiOutlineLogout />
+				<p style={{ marginRight: "10px" }}>DOTE, Chennai</p>
 			</div>
 		</div>
 	);
