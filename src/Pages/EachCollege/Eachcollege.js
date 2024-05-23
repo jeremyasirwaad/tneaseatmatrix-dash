@@ -15,9 +15,7 @@ export const Eachcollege = () => {
 	}, []);
 
 	const data = async () => {
-		const data = await fetch(
-			`https://www.tneaseatmatrix.in/api/list/college/${id}`
-		)
+		const data = await fetch(`http://35.154.42.235/api/list/college/${id}`)
 			.then((res) => res.json())
 			.then((res2) => {
 				setClgdata(res2[0]);
@@ -27,7 +25,7 @@ export const Eachcollege = () => {
 
 	const unlockp1 = async () => {
 		console.log("clicked");
-		const data = await fetch(`https://www.tneaseatmatrix.in/api/unlockp1/${id}`)
+		const data = await fetch(`http://35.154.42.235/api/unlockp1/${id}`)
 			.then((res) => res.json())
 			.then((res2) => {
 				if (res2.status) {
@@ -37,7 +35,7 @@ export const Eachcollege = () => {
 	};
 
 	const unlockp2 = async () => {
-		const data = await fetch(`https://www.tneaseatmatrix.in/api/unlockp2/${id}`)
+		const data = await fetch(`http://35.154.42.235/api/unlockp2/${id}`)
 			.then((res) => res.json())
 			.then((res2) => {
 				if (res2.status) {

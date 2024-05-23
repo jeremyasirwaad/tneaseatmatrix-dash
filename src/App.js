@@ -12,7 +12,7 @@ function App() {
 	}, []);
 
 	const getdata = async () => {
-		const data = await fetch("https://www.tneaseatmatrix.in/api/list/seats")
+		const data = await fetch("http://35.154.42.235/api/list/seats")
 			.then((res) => res.json())
 			.then((res2) => {
 				setStats(res2);

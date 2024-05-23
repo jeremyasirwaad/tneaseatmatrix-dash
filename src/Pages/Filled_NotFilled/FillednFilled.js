@@ -4,7 +4,6 @@ import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { DataGrid } from "@mui/x-data-grid";
 import BeatLoader from "react-spinners/BeatLoader";
 import "./FillednFilled.css";
-import { unparse as PapaUnparse } from "papaparse";
 
 import { Navigate, useNavigate } from "react-router-dom";
 
@@ -35,33 +34,8 @@ export const FillednFilled = () => {
 		data();
 	}, []);
 
-	const downloadmaker = () => {
-		console.log(np1freeze);
-		const csvData = np1freeze.map((item) => ({
-			// Map the item properties to match your CSV columns
-			Code: item.ccode,
-			CollegeName: item.can,
-			Principal: item.PrincipalName,
-			Email: item.Email,
-			Phone: item.PhoneNumber
-		}));
-
-		console.log(csvData);
-		// const Delremcsvdata = removeDuplicates(csvData, "Admission_No");
-
-		// // Trigger the CSV download
-		const csvDataString = PapaUnparse(csvData);
-		const csvBlob = new Blob([csvDataString], { type: "text/csv" });
-		const csvUrl = URL.createObjectURL(csvBlob);
-		const link = document.createElement("a");
-		link.href = csvUrl;
-		link.download = `phase1notlocked.csv`;
-		link.click();
-		URL.revokeObjectURL(csvUrl);
-	};
-
 	const data = async () => {
-		const data = await fetch("https://www.tneaseatmatrix.in/api/filled")
+		const data = await fetch("http://35.154.42.235/api/filled")
 			.then((res) => res.json())
 			.then((res2) => {
 				setLoadinf(false);
@@ -99,6 +73,81 @@ export const FillednFilled = () => {
 		{ field: "Email", headerName: "Email", flex: 0.2 },
 		{ field: "PhoneNumber", headerName: "Phone", flex: 0.1 }
 	];
+
+	// const rows = [
+	// 	{
+	// 		id: 1,
+	// 		ccode: 1,
+	// 		cname:
+	// 			"University Departments of Anna University, Chennai - CEG Campus, Sardar Patel Road, Guindy, Chennai 600 025",
+	// 		firstName: "Jon",
+	// 		age: 35
+	// 	},
+	// 	{
+	// 		id: 2,
+	// 		ccode: 2,
+	// 		cname:
+	// 			"University Departments of Anna University, Chennai - ACT Campus, Sardar Patel Road, Guindy, Chennai 600 025",
+	// 		firstName: "Cersei",
+	// 		age: 42
+	// 	},
+	// 	{
+	// 		id: 3,
+	// 		ccode: 3,
+	// 		cname:
+	// 			"School of Architecture and Planning, Anna University,Chennai 600025",
+	// 		firstName: "Jaime",
+	// 		age: 45
+	// 	},
+	// 	{
+	// 		id: 4,
+	// 		ccode: 4,
+	// 		cname:
+	// 			"StUniversity Departments of Anna University, Chennai - MIT Campus, Chrompet, Tambaram Taluk, Chengalpattu District 600 044ark",
+	// 		firstName: "Arya",
+	// 		age: 16
+	// 	},
+	// 	{
+	// 		id: 5,
+	// 		ccode: 5,
+	// 		cname:
+	// 			"Annamalai University Faculty of Engineering and Technology,Annamalai nagar,Cuddalore",
+	// 		firstName: "Daenerys",
+	// 		age: null
+	// 	},
+	// 	{
+	// 		id: 6,
+	// 		ccode: 6,
+	// 		cname:
+	// 			"University College of Engineering, Villupuram, Kakuppam, Villupuram District 605103 ",
+	// 		firstName: null,
+	// 		age: 150
+	// 	},
+	// 	{
+	// 		id: 7,
+	// 		ccode: 7,
+	// 		cname:
+	// 			"University College of Engineering, Tindivanam, Melpakkam, Tindivanam, Villupuram District 604001 ",
+	// 		firstName: "Ferrara",
+	// 		age: 44
+	// 	},
+	// 	{
+	// 		id: 8,
+	// 		ccode: 8,
+	// 		cname:
+	// 			"University College of Engineering, Arni, Arni to Devikapuram Road, Thatchur, Arni, Thiruvannamalai District 632326 ",
+	// 		firstName: "Rossini",
+	// 		age: 36
+	// 	},
+	// 	{
+	// 		id: 9,
+	// 		ccode: 9,
+	// 		cname:
+	// 			"University College of Engineering, Kancheepuram, Ponnerikarai Campus, NH4, Chennai-Bangalore Highway, Karaipettai Village & Post, Kancheepuram District 631552",
+	// 		firstName: "Harvey",
+	// 		age: 65
+	// 	}
+	// ];
 
 	return (
 		<div className="fillednotfilledpage">
@@ -303,13 +352,6 @@ export const FillednFilled = () => {
 						Not Freeze
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<button
-					onClick={() => {
-						downloadmaker();
-					}}
-				>
-					Download Not Freezed
-				</button>
 			</div>
 
 			<div style={{ height: "100vh", width: "100%" }} className="tablediv">
