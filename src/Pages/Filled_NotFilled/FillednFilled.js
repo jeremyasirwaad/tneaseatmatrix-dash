@@ -35,9 +35,9 @@ export const FillednFilled = () => {
 	}, []);
 
 	const data = async () => {
-		const data = await fetch("http://35.154.42.235/api/filled")
-			.then((res) => res.json())
-			.then((res2) => {
+		const data = await fetch("https://tneaseatmatrix.com/api/filled")
+			.then(res => res.json())
+			.then(res2 => {
 				setLoadinf(false);
 				console.log(res2);
 				setPageData(res2.login);
@@ -61,18 +61,12 @@ export const FillednFilled = () => {
 	};
 
 	const [filled, setFilled] = useState("0");
-	const handleChange = (data) => {
+	const handleChange = data => {
 		setFilled(data.target.value);
 		console.log(data.target.value);
 	};
 
-	const columns = [
-		{ field: "ccode", headerName: "Code", flex: 0.1 },
-		{ field: "can", headerName: "College Name", flex: 0.4 },
-		{ field: "PrincipalName", headerName: "Pricipal", flex: 0.2 },
-		{ field: "Email", headerName: "Email", flex: 0.2 },
-		{ field: "PhoneNumber", headerName: "Phone", flex: 0.1 }
-	];
+	const columns = [{ field: "ccode", headerName: "Code", flex: 0.1 }, { field: "can", headerName: "College Name", flex: 0.4 }, { field: "PrincipalName", headerName: "Pricipal", flex: 0.2 }, { field: "Email", headerName: "Email", flex: 0.2 }, { field: "PhoneNumber", headerName: "Phone", flex: 0.1 }];
 
 	// const rows = [
 	// 	{
@@ -149,60 +143,33 @@ export const FillednFilled = () => {
 	// 	}
 	// ];
 
-	return (
-		<div className="fillednotfilledpage">
+	return <div className="fillednotfilledpage">
 			<div>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"0"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"0"} onClick={() => {
 							setPageData(loggedi);
-						}}
-					>
+						}}>
 						Logged In
 					</ToggleButton>
-					<ToggleButton
-						value={"1"}
-						onClick={() => {
+					<ToggleButton value={"1"} onClick={() => {
 							setPageData(notloggedin);
-						}}
-					>
+						}}>
 						Not Logged In
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"2"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"2"} onClick={() => {
 							setPageData(personal);
-						}}
-					>
+						}}>
 						Personal Filled
 					</ToggleButton>
-					<ToggleButton
-						value={"3"}
-						onClick={() => {
+					<ToggleButton value={"3"} onClick={() => {
 							setPageData(personalnotfilled);
-						}}
-					>
+						}}>
 						Personal Not Filled
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
+				{/* <ToggleButtonGroup
 					color="primary"
 					value={filled}
 					exclusive
@@ -226,164 +193,76 @@ export const FillednFilled = () => {
 					>
 						Bank Not Filled
 					</ToggleButton>
-				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"6"}
-						onClick={() => {
+				</ToggleButtonGroup> */}
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"6"} onClick={() => {
 							setPageData(coursefilled);
-						}}
-					>
+						}}>
 						Course Filled
 					</ToggleButton>
-					<ToggleButton
-						value={"7"}
-						onClick={() => {
+					<ToggleButton value={"7"} onClick={() => {
 							setPageData(ncoursefilled);
-						}}
-					>
+						}}>
 						Course Not Filled
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"8"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"8"} onClick={() => {
 							setPageData(p1freeze);
-						}}
-					>
+						}}>
 						Phase 1 Freeze
 					</ToggleButton>
-					<ToggleButton
-						onClick={() => {
+					<ToggleButton onClick={() => {
 							setPageData(np1freeze);
-						}}
-						value={"9"}
-					>
+						}} value={"9"}>
 						Not Freezed
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"10"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"10"} onClick={() => {
 							setPageData(declare);
-						}}
-					>
+						}}>
 						Declared
 					</ToggleButton>
-					<ToggleButton
-						value={"11"}
-						onClick={() => {
+					<ToggleButton value={"11"} onClick={() => {
 							setPageData(notdeclared);
-						}}
-					>
+						}}>
 						Not Declared
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"12"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"12"} onClick={() => {
 							setPageData(docu);
-						}}
-					>
+						}}>
 						Document uploaded
 					</ToggleButton>
-					<ToggleButton
-						value={"13"}
-						onClick={() => {
+					<ToggleButton value={"13"} onClick={() => {
 							setPageData(fdocu);
-						}}
-					>
+						}}>
 						Not Uploaded
 					</ToggleButton>
 				</ToggleButtonGroup>
-				<ToggleButtonGroup
-					color="primary"
-					value={filled}
-					exclusive
-					onChange={handleChange}
-					aria-label="Platform"
-					sx={{ m: 2 }}
-				>
-					<ToggleButton
-						value={"14"}
-						onClick={() => {
+				<ToggleButtonGroup color="primary" value={filled} exclusive onChange={handleChange} aria-label="Platform" sx={{ m: 2 }}>
+					<ToggleButton value={"14"} onClick={() => {
 							setPageData(tfreeze);
-						}}
-					>
+						}}>
 						Total Freeze
 					</ToggleButton>
-					<ToggleButton
-						value={"15"}
-						onClick={() => {
+					<ToggleButton value={"15"} onClick={() => {
 							setPageData(ntfreeze);
-						}}
-					>
+						}}>
 						Not Freeze
 					</ToggleButton>
 				</ToggleButtonGroup>
 			</div>
 
 			<div style={{ height: "100vh", width: "100%" }} className="tablediv">
-				{loadinf ? (
-					<div
-						style={{
-							width: "100%",
-							display: "flex",
-							alignItems: "center",
-							justifyContent: "center",
-							marginTop: "100px"
-						}}
-					>
-						<BeatLoader color="indigo" />
-					</div>
-				) : (
-					<DataGrid
-						rows={pagedata}
-						columns={columns}
-						pageSize={5}
-						rowHeight={80}
-						rowsPerPageOptions={[5]}
-						hideFooter={true}
-						style={{ backgroundColor: "white" }}
-						getRowId={(row) => row._id}
-						onRowClick={(row) => {
-							console.log(row);
-							navigate(`college/${row.row.ccode}`);
-						}}
-					/>
-				)}
+				{loadinf ? <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center", marginTop: "100px" }}>
+							<BeatLoader color="indigo" />
+						</div> : <DataGrid rows={pagedata} columns={columns} pageSize={5} rowHeight={80} rowsPerPageOptions={[5]} hideFooter={true} style={{ backgroundColor: "white" }} getRowId={row => row._id} onRowClick={row => {
+								console.log(row);
+								navigate(`college/${row.row.ccode}`);
+							}} />}
 			</div>
-		</div>
-	);
+		</div>;
 };

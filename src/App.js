@@ -12,15 +12,14 @@ function App() {
 	}, []);
 
 	const getdata = async () => {
-		const data = await fetch("http://35.154.42.235/api/list/seats")
-			.then((res) => res.json())
-			.then((res2) => {
+		const data = await fetch("https://tneaseatmatrix.com/api/list/seats")
+			.then(res => res.json())
+			.then(res2 => {
 				setStats(res2);
 			});
 	};
 
-	return (
-		<div className="Dashboard">
+	return <div className="Dashboard">
 			<div className="Dashboard-grid">
 				<DataCard title={"Total No of Seats"} data={stats.intake} />
 				<DataCard title={"Total Government Seats"} data={stats.govt} />
@@ -28,7 +27,7 @@ function App() {
 				<DataCard title={"Total Surrender Seats"} data={stats.surrender} />
 				<DataCard title={"Total SW Total Seats"} data={stats.sws} />
 				<DataCard title={"Personal Details Filled"} data={stats.perd} />
-				<DataCard title={"Bank Details Filled"} data={stats.bankd} />
+				{/* <DataCard title={"Bank Details Filled"} data={stats.bankd} /> */}
 				<DataCard title={"Course Details"} data={stats.cour} />
 				<DataCard title={"Phase 1 Freezed"} data={stats.Phase1Freeze} />
 				<DataCard title={"Declearation Filled"} data={stats.dec} />
@@ -86,8 +85,7 @@ function App() {
 					}
 				/> */}
 			</div>
-		</div>
-	);
+		</div>;
 }
 
 export default App;
