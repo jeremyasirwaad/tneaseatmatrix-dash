@@ -30,7 +30,7 @@ function App() {
 				<DataCard title={"Personal Details Filled"} data={stats.perd} />
 				{/* <DataCard title={"Bank Details Filled"} data={stats.bankd} /> */}
 				<DataCard title={"Course Details"} data={stats.cour} />
-				<DataCard title={"Phase 1 Freezed"} data={stats.Phase1Freeze} />
+				{/* <DataCard title={"Phase 1 Freezed"} data={stats.Phase1Freeze} /> */}
 				<DataCard title={"Declearation Filled"} data={stats.dec} />
 				<DataCard title={"Document Uploaded"} data={stats.doc} />
 				<DataCard title={"Phase 2 Freezed"} data={stats.Phase2Freeze} />
