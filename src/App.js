@@ -33,7 +33,7 @@ function App() {
 				{/* <DataCard title={"Phase 1 Freezed"} data={stats.Phase1Freeze} /> */}
 				<DataCard title={"Declearation Filled"} data={stats.dec} />
 				<DataCard title={"Document Uploaded"} data={stats.doc} />
-				<DataCard title={"Phase 2 Freezed"} data={stats.Phase2Freeze} />
+				<DataCard title={"Total Freeze"} data={stats.Phase2Freeze} />
 
 				{/* <IframeCard
 					src={
