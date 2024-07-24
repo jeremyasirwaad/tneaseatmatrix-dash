@@ -15,7 +15,9 @@ export const Eachcollege = () => {
 	}, []);
 
 	const data = async () => {
-		const data = await fetch(`https://tneaseatmatrix.com/api/list/college/${id}`)
+		const data = await fetch(
+			`https://pg.tneaseatmatrix.com/api/list/college/${id}`
+		)
 			.then((res) => res.json())
 			.then((res2) => {
 				setClgdata(res2[0]);
@@ -25,7 +27,7 @@ export const Eachcollege = () => {
 
 	const unlockp1 = async () => {
 		console.log("clicked");
-		const data = await fetch(`https://tneaseatmatrix.com/api/unlockp1/${id}`)
+		const data = await fetch(`https://pg.tneaseatmatrix.com/api/unlockp1/${id}`)
 			.then((res) => res.json())
 			.then((res2) => {
 				if (res2.status) {
@@ -35,7 +37,7 @@ export const Eachcollege = () => {
 	};
 
 	const unlockp2 = async () => {
-		const data = await fetch(`https://tneaseatmatrix.com/api/unlockp2/${id}`)
+		const data = await fetch(`https://pg.tneaseatmatrix.com/api/unlockp2/${id}`)
 			.then((res) => res.json())
 			.then((res2) => {
 				if (res2.status) {
@@ -50,19 +52,19 @@ export const Eachcollege = () => {
 			field: "courseName",
 			headerName: "Course Name",
 			valueFormatter: (params) => params.value.label,
-			flex: 1
+			flex: 1,
 		},
 		{
 			field: "accredation",
 			headerName: "Acc Stat",
-			valueFormatter: (params) => params.value.label
+			valueFormatter: (params) => params.value.label,
 		},
 		{ field: "intake", headerName: "Total Intake" },
 		{ field: "Govt", headerName: "Govenment" },
 		{ field: "Surrender", headerName: "Surrender" },
 		{ field: "Management", headerName: "Management " },
 		{ field: "SWS", headerName: "SWS" },
-		{ field: "Added", headerName: "Added " }
+		{ field: "Added", headerName: "Added " },
 	];
 
 	const rows = [
@@ -72,7 +74,7 @@ export const Eachcollege = () => {
 			cname:
 				"University Departments of Anna University, Chennai - CEG Campus, Sardar Patel Road, Guindy, Chennai 600 025",
 			firstName: "Jon",
-			age: 35
+			age: 35,
 		},
 		{
 			id: 2,
@@ -80,7 +82,7 @@ export const Eachcollege = () => {
 			cname:
 				"University Departments of Anna University, Chennai - ACT Campus, Sardar Patel Road, Guindy, Chennai 600 025",
 			firstName: "Cersei",
-			age: 42
+			age: 42,
 		},
 		{
 			id: 3,
@@ -88,7 +90,7 @@ export const Eachcollege = () => {
 			cname:
 				"School of Architecture and Planning, Anna University,Chennai 600025",
 			firstName: "Jaime",
-			age: 45
+			age: 45,
 		},
 		{
 			id: 4,
@@ -96,7 +98,7 @@ export const Eachcollege = () => {
 			cname:
 				"StUniversity Departments of Anna University, Chennai - MIT Campus, Chrompet, Tambaram Taluk, Chengalpattu District 600 044ark",
 			firstName: "Arya",
-			age: 16
+			age: 16,
 		},
 		{
 			id: 5,
@@ -104,7 +106,7 @@ export const Eachcollege = () => {
 			cname:
 				"Annamalai University Faculty of Engineering and Technology,Annamalai nagar,Cuddalore",
 			firstName: "Daenerys",
-			age: null
+			age: null,
 		},
 		{
 			id: 6,
@@ -112,7 +114,7 @@ export const Eachcollege = () => {
 			cname:
 				"University College of Engineering, Villupuram, Kakuppam, Villupuram District 605103 ",
 			firstName: null,
-			age: 150
+			age: 150,
 		},
 		{
 			id: 7,
@@ -120,7 +122,7 @@ export const Eachcollege = () => {
 			cname:
 				"University College of Engineering, Tindivanam, Melpakkam, Tindivanam, Villupuram District 604001 ",
 			firstName: "Ferrara",
-			age: 44
+			age: 44,
 		},
 		{
 			id: 8,
@@ -128,7 +130,7 @@ export const Eachcollege = () => {
 			cname:
 				"University College of Engineering, Arni, Arni to Devikapuram Road, Thatchur, Arni, Thiruvannamalai District 632326 ",
 			firstName: "Rossini",
-			age: 36
+			age: 36,
 		},
 		{
 			id: 9,
@@ -136,8 +138,8 @@ export const Eachcollege = () => {
 			cname:
 				"University College of Engineering, Kancheepuram, Ponnerikarai Campus, NH4, Chennai-Bangalore Highway, Karaipettai Village & Post, Kancheepuram District 631552",
 			firstName: "Harvey",
-			age: 65
-		}
+			age: 65,
+		},
 	];
 
 	return (

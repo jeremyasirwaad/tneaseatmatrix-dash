@@ -12,14 +12,15 @@ function App() {
 	}, []);
 
 	const getdata = async () => {
-		const data = await fetch("https://tneaseatmatrix.com/api/list/seats")
-			.then(res => res.json())
-			.then(res2 => {
+		const data = await fetch("https://pg.tneaseatmatrix.com/api/list/seats")
+			.then((res) => res.json())
+			.then((res2) => {
 				setStats(res2);
 			});
 	};
 
-	return <div className="Dashboard">
+	return (
+		<div className="Dashboard">
 			<div className="Dashboard-grid">
 				<DataCard title={"Total No of Seats"} data={stats.intake} />
 				<DataCard title={"Total Government Seats"} data={stats.govt} />
@@ -85,7 +86,8 @@ function App() {
 					}
 				/> */}
 			</div>
-		</div>;
+		</div>
+	);
 }
 
 export default App;
